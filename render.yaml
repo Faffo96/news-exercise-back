@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: news-exercise-back
+    env: java
+    buildCommand: ./mvnw package
+    startCommand: java -jar target/*.jar
+    plan: free
