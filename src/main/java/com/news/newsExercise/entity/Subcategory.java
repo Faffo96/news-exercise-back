@@ -20,4 +20,15 @@ public class Subcategory {
     @ManyToMany(mappedBy = "subcategoriesList")
     @JsonIgnore
     private List<News> newsList;
+
+    @Override
+    public String toString() {
+        return "Subcategory{" +
+                "id=" + id +
+                ", mainCategory=" + mainCategory +
+                ", subcategory='" + subcategory + '\'' +
+                '}';
+    }
 }
+
+

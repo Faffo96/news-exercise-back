@@ -18,3 +18,11 @@
 2024-11-22 15:48:21,113 ERROR [http-nio-8080-exec-3] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
 2024-11-22 16:55:36,390 ERROR [http-nio-8080-exec-7] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
 2024-11-22 19:42:04,568 ERROR [http-nio-8080-exec-4] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
+2024-11-22 23:10:05,204 ERROR [http-nio-8080-exec-2] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
+2024-11-23 23:57:39,228 ERROR [http-nio-8080-exec-7] loggerError [CentralizedExceptionHandler.java:41] -- News not found with id: f2a5cd94-b82b-4099-bdac-e28ddac7be68
+2024-11-24 02:25:07,302 ERROR [http-nio-8080-exec-8] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
+2024-11-24 02:25:15,596 ERROR [http-nio-8080-exec-7] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
+2024-11-24 02:27:58,504 ERROR [http-nio-8080-exec-7] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
+2024-11-24 02:28:12,185 ERROR [http-nio-8080-exec-2] loggerError [CentralizedExceptionHandler.java:80] -- You can't enter subcategories that don't belong to the main category of the article.
+2024-11-24 11:19:53,529 ERROR [http-nio-8080-exec-2] loggerError [CentralizedExceptionHandler.java:54] -- CategoryEnum not found with id: 108
+2024-11-24 11:20:41,095 ERROR [http-nio-8080-exec-4] loggerError [CentralizedExceptionHandler.java:54] -- CategoryEnum not found with id: 102

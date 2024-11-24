@@ -1,5 +1,6 @@
 package com.news.newsExercise.controller;
 
+import com.news.newsExercise.Enum.CategoryEnum;
 import com.news.newsExercise.dto.SubcategoryDTO;
 import com.news.newsExercise.entity.News;
 import com.news.newsExercise.entity.Subcategory;
@@ -12,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -60,5 +62,12 @@ public class SubcategoryController {
             String result = subcategoryService.deleteCategory(id);
             return ResponseEntity.ok(result);
 
+    }
+
+    @GetMapping("/mainCategories")
+    public ResponseEntity<List<CategoryEnum>> getAllMainCategories() {
+        // Restituisce tutti i valori dell'enum come lista
+        List<CategoryEnum> mainCategories = Arrays.asList(CategoryEnum.values());
+        return ResponseEntity.ok(mainCategories);
     }
 }

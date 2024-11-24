@@ -28,11 +28,11 @@ import java.util.UUID;
 @Service
 public class NewsService {
 
-@Autowired
-private NewsRepository newsRepository;
+    @Autowired
+    private NewsRepository newsRepository;
 
-@Autowired
-private SubcategoryService subcategoryService;
+    @Autowired
+    private SubcategoryService subcategoryService;
 
     private static final Logger loggerInfo = LoggerFactory.getLogger("loggerInfo");
 
@@ -43,16 +43,17 @@ private SubcategoryService subcategoryService;
         news.setBody(newsDTO.getBody());
         news.setReleaseDate(LocalDate.now());
         news.setMainCategory(newsDTO.getMainCategory());
-        news.setOtherCategoriesList(newsDTO.getOtherCategories());
-        List<Subcategory> subcategories = newsDTO.getSubcategories();
+        news.setOtherCategoriesList(newsDTO.getOtherCategoriesList());
+        List<Subcategory> subcategories = newsDTO.getSubcategoriesList();
         List<Subcategory> validSubcategories = new ArrayList<>();
-
-        for (Subcategory subcategoryDTO : subcategories) {
-            Subcategory subcategory = subcategoryService.getCategoryById(subcategoryDTO.getId());
-            if (subcategory.getMainCategory() != newsDTO.getMainCategory()) {
-                throw new CategoryAndSubcategoryMismatchException("You can't enter subcategories that don't belong to the main category of the article.");
+        if (subcategories != null) {
+            for (Subcategory subcategoryDTO : subcategories) {
+                Subcategory subcategory = subcategoryService.getCategoryById(subcategoryDTO.getId());
+                if (subcategory.getMainCategory() != newsDTO.getMainCategory()) {
+                    throw new CategoryAndSubcategoryMismatchException("You can't enter subcategories that don't belong to the main category of the article.");
+                }
+                validSubcategories.add(subcategory);
             }
-            validSubcategories.add(subcategory);
         }
 
         news.setSubcategoriesList(validSubcategories);
@@ -103,14 +104,23 @@ private SubcategoryService subcategoryService;
         news.setAuthor(newsDTO.getAuthor());
         news.setTitle(newsDTO.getTitle());
         news.setBody(newsDTO.getBody());
-        List<Subcategory> subcategories = newsDTO.getSubcategories();
-        for (int i = 0; i < subcategories.size(); i++) {
-            Subcategory subcategory = subcategoryService.getCategoryById(subcategories.get(i).getId());
-            if (subcategory.getMainCategory() != newsDTO.getMainCategory()) {
-                throw new CategoryAndSubcategoryMismatchException("You can't enter subcategories that don't belong to the main category of the article.");
+        news.setMainCategory(newsDTO.getMainCategory());
+        news.setOtherCategoriesList(newsDTO.getOtherCategoriesList());
+        List<Subcategory> subcategories = newsDTO.getSubcategoriesList();
+        if (subcategories != null) {
+            List<Subcategory> updatedSubcategories = new ArrayList<>();
+            for (Subcategory subcategoryDTO : subcategories) {
+                Subcategory subcategory = subcategoryService.getCategoryById(subcategoryDTO.getId()); // Recupera dal DB
+                if (!subcategory.getMainCategory().equals(newsDTO.getMainCategory())) {
+                    throw new CategoryAndSubcategoryMismatchException(
+                            "You can't enter subcategories that don't belong to the main category of the article."
+                    );
+                }
+                updatedSubcategories.add(subcategory); // Aggiungi la versione aggiornata
             }
-            news.setSubcategoriesList(subcategories);
+            news.setSubcategoriesList(updatedSubcategories); // Usa la lista aggiornata
         }
+
 
 
         String archiveDateString = newsDTO.getArchiveDate();

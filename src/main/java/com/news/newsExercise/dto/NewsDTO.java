@@ -24,6 +24,6 @@ public class NewsDTO {
     @NotNull(message = "Archive Date cannot be null.")
     private String archiveDate;
     private CategoryEnum mainCategory;
-    private List<CategoryEnum> otherCategories;
-    private List<Subcategory> subcategories;
+    private List<CategoryEnum> otherCategoriesList;
+    private List<Subcategory> subcategoriesList;
 }

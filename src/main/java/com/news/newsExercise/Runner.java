@@ -28,16 +28,16 @@ public class Runner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (subcategoryService.getAllCategories("mainCategory").isEmpty()) {
             List<Subcategory> subcategories = List.of(
-                    createSubcategory(CategoryEnum.Attualità, "Politica"),
-                    createSubcategory(CategoryEnum.Attualità, "Economia"),
-                    createSubcategory(CategoryEnum.Attualità, "Cronaca"),
-                    createSubcategory(CategoryEnum.Ambiente, "Cambiamenti Climatici"),
-                    createSubcategory(CategoryEnum.Ambiente, "Biodiversità"),
-                    createSubcategory(CategoryEnum.Ambiente, "Inquinamento"),
-                    createSubcategory(CategoryEnum.Moda, "Haute Couture"),
-                    createSubcategory(CategoryEnum.Moda, "Streetwear"),
-                    createSubcategory(CategoryEnum.Moda, "Accessori"),
-                    createSubcategory(CategoryEnum.Moda, "Tendenze Stagionali")
+                    createSubcategory(CategoryEnum.CurrentAffairs, "Politica"),
+                    createSubcategory(CategoryEnum.CurrentAffairs, "Economia"),
+                    createSubcategory(CategoryEnum.CurrentAffairs, "Cronaca"),
+                    createSubcategory(CategoryEnum.Environment, "Cambiamenti Climatici"),
+                    createSubcategory(CategoryEnum.Environment, "Biodiversità"),
+                    createSubcategory(CategoryEnum.Environment, "Inquinamento"),
+                    createSubcategory(CategoryEnum.Fashion, "Haute Couture"),
+                    createSubcategory(CategoryEnum.Fashion, "Streetwear"),
+                    createSubcategory(CategoryEnum.Fashion, "Accessori"),
+                    createSubcategory(CategoryEnum.Fashion, "Tendenze Stagionali")
             );
 
             for (int i = 0; i < subcategories.size(); i++) {

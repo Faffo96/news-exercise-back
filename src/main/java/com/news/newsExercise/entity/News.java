@@ -21,7 +21,9 @@ public class News {
     private String body;
     private LocalDate releaseDate = LocalDate.now();
     private String archiveDate;
+    @Enumerated(EnumType.STRING)
     private CategoryEnum mainCategory;
+    @Enumerated(EnumType.STRING)
     private List<CategoryEnum> otherCategoriesList;
     @ManyToMany
     @JoinTable(

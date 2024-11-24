@@ -15,7 +15,7 @@ public class Config {
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowedOrigins(List.of(
-                "https://halo-health.netlify.app/",
+                "https://news-exercise.netlify.app",
                 "http://localhost:3000"
 
         ));
